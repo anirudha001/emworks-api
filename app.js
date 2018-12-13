@@ -7,14 +7,15 @@ const fileUpload = require('express-fileupload')
 xlsxj = require("xlsx-to-json-lc");
 var sql = require('mssql');
 const cors = require('cors')
+const dbConfig = require('./db-config.json')
 
 const app = express()
 
 const sqlConfig = {
-  user: 'saa',
-  password: '123456',
-  server: 'ANIRUDHA-PC\\SQLEXPRESS',
-  database: 'emworks',
+  user: dbConfig.user,
+  password: dbConfig.password,
+  server: dbConfig.server,
+  database: dbConfig.database,
   beforeConnect: conn => {
     conn.once('connect', err => { err ? console.error(err) : console.log('mssql connected')})
     conn.once('end', err => { err ? console.error(err) : console.log('mssql disconnected')})

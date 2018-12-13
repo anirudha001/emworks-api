@@ -1,0 +1,6 @@
+{
+    "user": "YourUsername",
+    "password": "YourPassword",
+    "server": "localhost\\SQLEXPRESS",
+    "database": "emworks"
+}
