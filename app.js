@@ -11,6 +11,7 @@ const dbConfig = require('./db-config.json')
 
 const app = express()
 
+// db configuration
 const sqlConfig = {
   user: dbConfig.user,
   password: dbConfig.password,
