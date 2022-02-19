@@ -11,6 +11,7 @@ const dbConfig = require('./db-config.json')
 
 const app = express()
 
+// db configuration
 const sqlConfig = {
   user: dbConfig.user,
   password: dbConfig.password,
@@ -34,6 +35,7 @@ app.use(cookieParser())
 app.use(fileUpload())
 app.use('/public', express.static(__dirname + '/public'))
 
+// upload excel file API
 app.post('/upload', async (req, res, next) => {
   let uploadFile = req.files.file
   const fileName = req.files.file.name  
@@ -66,6 +68,7 @@ app.post('/upload', async (req, res, next) => {
       return res.status(500).send(err);
   }
 
+  // Push excel data to database
   try {
     await sql.connect(sqlConfig);
 
